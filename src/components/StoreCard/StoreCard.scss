@@ -1,0 +1,88 @@
+.most__popular-card {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.192);
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: white;
+    transition: all 0.25s;
+
+    &:hover {
+        transform: scale(1.04);
+        box-shadow:  0px 5px 10px rgba(0, 0, 0, 0.192);
+    }
+
+    .most__popular-image__wrapper{
+        position: relative;
+        width: 330px;
+        height: 150px;
+        border-radius: 10px 10px 0 0;
+        overflow: hidden;
+        .most__popular-rating{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background-color: rgba(255, 255, 255, 0.716);
+            font-size: 15px;
+            padding: 2px 3px;
+            border-radius: 5px;
+            z-index: 2;
+        }
+        .most__popular-img{
+            z-index: 1;
+        }
+    }
+
+    .popular-card__bottom-wrapper{
+        padding: 15px;
+
+        .most__popular-main.row{
+            margin-bottom: 20px;
+            height: 15px;
+            .most__popular-title{
+                font-size: 15px;
+                font-weight: bold;
+                color: var(--colorText);
+            }
+            .most__popular-rating__btn{
+                text-align: center;
+                width: 26px;
+                height: 26px;
+                line-height: 3px;
+                border-radius: 10px;
+                border: 1px solid #e5e7eb;
+                background: none;
+                color: var(--colorText);
+                transition: all 0.2s;
+                cursor: pointer;
+                &:hover{
+                    background: rgba(255, 0, 0, 0.733); 
+                }
+            }
+        }
+
+        .most__popular-footer.row{
+            .most__popular-delivery__time.row{
+                gap: 5px;
+                justify-content: center;
+                p{
+                    font-size: 14px;
+                    margin-bottom: 2px;
+                    font-weight: 500;
+                }
+            }
+            .most__popular-delivery.row{
+               gap: 5px;
+               p{
+                font-size: 14px;
+                font-weight: 500;
+                margin-bottom: 2px;
+               }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 425px){
+      .most__popular-card .most__popular-image__wrapper{
+            width: 280px;
+        }
+}

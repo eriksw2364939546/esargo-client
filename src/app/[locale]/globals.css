@@ -1,0 +1,155 @@
+:root {
+	/* Основні кольори */
+	--dark: #000000;
+	--light: #ffffff;
+	--gray: #373737;
+	--middlegray: #585858;
+	--litegray: #cccccc;
+	--red: rgb(249 115 22);
+	--backgound: rgba(250, 224, 192, 0.249);
+	--background2: #F9FAFB;
+	--litered: #ff0000;
+	--carddark: #212121;
+	--shadowGray: 1px 1px 4px #cccccc;
+	--shadowDark: 0px 4px 8px #cccccc, 0px -2px 6px #e1e1e1;
+	--shadowModal: 0px 1px 6px rgba(75, 75, 75, 0.43);
+	--grayLight: #f9fafb;
+	--colorText: rgb(55 65 81);
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 50px;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+body {
+	color: var(--dark);
+	background: var(--light);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow: auto;
+}
+
+body.fixed-body {
+	overflow: hidden;
+	padding-right: 8px;
+}
+
+#root {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+@media (max-width: 1024px) and (pointer: coarse) {
+	body.fixed-body {
+		overflow: hidden;
+		padding-right: 0;
+	}
+}
+
+body::-webkit-scrollbar {
+	width: 8px;
+	background: var(--litegray);
+}
+
+body::-webkit-scrollbar-thumb {
+	background: var(--red);
+	width: 8px;
+}
+
+.container {
+	max-width: 1430px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.btn {
+	background: var(--red);
+	color: var(--light);
+	font-size: 15px;
+	font-weight: 500;
+	border-radius: 6px;
+	width: 100%;
+	padding: 0 20px;
+	cursor: pointer;
+	transition: all 0.3s;
+	border: none;
+	height: 36px;
+	line-height: 44px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	justify-content: center;
+}
+
+.btn-second {
+	background: var(--light);
+	color: var(--dark);
+	font-size: 18px;
+	font-weight: 500;
+	border-radius: 6px;
+	min-width: 170px;
+	padding: 0 20px;
+	cursor: pointer;
+	transition: all 0.3s;
+	border: 1px solid var(--dark);
+	height: 44px;
+	line-height: 44px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	justify-content: center;
+}
+
+.btn:hover {
+	background: var(--litered);
+}
+
+.head__btn {
+	background: #ffffff;
+	width: auto;
+	height: 36px;
+	line-height: 36px;
+	padding: 0 10px;
+	font-weight: 500;
+	font-size: 14px;
+	color: var(--colorText);
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+	transition: all 0.2s;
+
+}
+
+.head__btn:hover {
+	background: rgba(41, 41, 41, 0.056);
+	color: var(--red);
+
+}
+
+
+.row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+ section {
+	padding: 60px 0;
+
+}
+

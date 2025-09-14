@@ -1,0 +1,203 @@
+.alpha {
+	margin-top: 60px;
+	padding: 70px 0 80px 0;
+	background: var(--backgound);
+
+	.alpha__content {
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 20px;
+
+		.alpha__address {
+			margin: 20px 0;
+
+			.alpha__address-form {
+				width: 672px;
+				border-radius: 5px;
+				height: 48px;
+				display: flex;
+				border: none;
+
+				&:focus-within {
+					border: 1px solid black;
+				}
+
+				.alpha__input-wrapper {
+					padding: 4px 12px 4px 10px;
+					gap: 15px;
+					width: 100%;
+					display: flex;
+					align-items: center;
+					border: 2px solid rgba(128, 128, 128, 0.189);
+					border-radius: 5px 0 0 5px;
+					transition: border 0.3s;
+
+					&:focus-within {
+						border: 2px solid #4CAF50;
+					}
+
+					svg {
+						color: rgba(128, 128, 128, 0.489);
+					}
+
+					.alpha__input {
+						width: 100%;
+						border: none;
+						outline: none;
+						background: transparent;
+						font-size: 14px;
+
+						&::placeholder {
+							color: rgba(128, 128, 128, 0.7);
+						}
+					}
+				}
+
+				.alpha__confirm-btn {
+					padding: 0 20px;
+					border-left: none;
+					border-radius: 0 5px 5px 0;
+					width: auto;
+					height: auto;
+					color: white;
+					font-size: 14px;
+					font-weight: 500;
+					cursor: pointer;
+					transition: all 0.3s;
+					flex-shrink: 0;
+
+					&:hover:not(:disabled) {
+						background: var(--litered);
+					}
+
+					&:disabled {
+						background: rgba(152, 51, 51, 0.3);
+						cursor: not-allowed;
+					}
+				}
+			}
+
+			.alpha__address-confirmed {
+				padding: 15px 20px;
+				border: 2px solid var(--backgound);
+				border-radius: 5px;
+				background: var(--backgound);
+
+				h3 {
+					margin: 0 0 8px 0;
+					font-size: 14px;
+					font-weight: 600;
+					color: black;
+				}
+
+				.alpha__address-text {
+					margin: 0 0 12px 0;
+					font-size: 16px;
+					color: var(--colorText);
+					line-height: 1.4;
+				}
+
+				.alpha__change-btn {
+					color: var(--red) !important;
+					border: 1px solid var(--red);
+
+					&:hover {
+						color: var(--dark) !important;
+						background: rgba(164, 0, 0, 0.056);
+					}
+
+				}
+			}
+		}
+
+		// Responsive styles
+		@media all and (max-width: 1200px) {
+			.alpha__address-form {
+				width: 450px !important;
+			}
+		}
+
+		@media all and (max-width: 960px) {
+			.alpha__address-form {
+				width: 250px !important;
+			}
+		}
+
+		@media all and (max-width: 750px) {
+			.alpha__address-form {
+				width: 330px !important;
+			}
+		}
+
+		@media all and (max-width: 520px) {
+			.alpha__address-form {
+				width: 100% !important;
+			}
+
+			.alpha__confirm-btn {
+				width: 100px !important;
+				font-size: 13px !important;
+				
+			}
+		}
+
+		// @media all and (max-width: 370px) {
+		// 	.alpha__address-form {
+		// 		width: 150px !important;
+		// 	}
+		// }
+
+		h1 {
+			color: black;
+			font-size: 55px;
+		}
+
+		p {
+			font-size: 22px;
+			color: var(--colorText);
+			font-weight: 450;
+
+		}
+
+		a {
+			background: var(--red);
+			width: 170px;
+			height: 36px;
+			line-height: 36px;
+			font-weight: 600;
+			border-radius: 5px;
+			cursor: pointer;
+			color: #ffffff;
+			transition: all 0.2s;
+
+			&:hover {
+				background: rgba(249, 116, 22, 0.866);
+			}
+		}
+	}
+}
+
+@media all and (max-width: 900px) {
+	.alpha__content h1 {
+		font-size: 40px !important;
+
+	}
+}
+
+@media all and (max-width: 670px) {
+	.alpha__content h1 {
+		font-size: 29px !important;
+
+	}
+
+	.alpha__content p {
+		font-size: 19px !important;
+	}
+
+	.alpha__content h1 br {
+		display: none;
+	}
+}

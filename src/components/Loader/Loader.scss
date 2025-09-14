@@ -1,0 +1,23 @@
+.Loader {
+	display: flex;
+	width: 100%;
+	padding: 0 20px;
+	margin: 80px 0;
+
+	&__wrapper {
+		width: 120px;
+		height: 120px;
+	}
+
+	.left {
+		margin-right: auto;
+	}
+
+	.center {
+		margin: 0 auto;
+	}
+
+	.right {
+		margin-left: auto;
+	}
+}

@@ -1,0 +1,102 @@
+{
+	"homePage": {
+		"alpha": {
+			"title": "Fast delivery of everything<br />you need",
+			"p": "Discover the best restaurants and shops near you",
+			"toConditions": "Conditions"
+		},
+		"basket": {
+			"headText": "Basket",
+			"contentText1": "Your basket is empty.",
+			"contentText2": "Add some items to get started."
+		},
+		"categories": {
+			"title": "Categories",
+			"p": "Explore our various categories",
+			"cards": {
+				"food": "Food",
+				"alcohol": "Alcohol",
+				"cosmetics": "Cosmetics",
+				"flowers": "Flowers",
+				"pets": "Pets"
+			}
+		},
+		"mostPopular": {
+			"title": "Most Popular",
+			"descr": "The best near you",
+			"btn": "View all"
+		},
+		"armenian": {
+			"title": "Armenian goods and tastes",
+			"descr": "For true lovers of all things Armenian",
+			"btn": "View all"
+		}
+	},
+	"header": {
+		"toRegister": "Register",
+		"toLogin": "Login",
+		"searchForm": "Search for restaurants and shops"
+	},
+	"registerPage": {
+		"title": "Registration Page",
+		"welcome": "Welcome",
+		"tabLogin": "Login",
+		"tabRegister": "Register",
+		"firstName": "First Name",
+		"lastName": "Last Name",
+		"email": "E-mail",
+		"phone": "Phone",
+		"password": "Password",
+		"confirmPassword": "Confirm Password",
+		"registerButton": "Register",
+		"termsNotice": {
+			"text1": "By registering, you agree to our",
+			"text2": "terms of use",
+			"text3": "and politics",
+			"text4": "confidentiality."
+		},
+		"placeholders": {
+			"firstName": "First Name",
+			"lastName": "Last Name",
+			"email": "E-mail",
+			"phone": "+33 1 23 45 67 89",
+			"password": "Password",
+			"confirmPassword": "Confirm Password"
+		}
+	},
+	"loginPage": {
+		"title": "Login Page",
+		"welcome": "Welcome",
+		"tabLogin": "Login",
+		"tabRegister": "Register",
+		"email": "Email",
+		"password": "Password",
+		"forgotPassword": "Forgot password?",
+		"loginButton": "Login",
+		"orContinue": "Or continue with",
+		"google": "Google",
+		"apple": "Apple",
+		"placeholders": {
+			"email": "E-mail",
+			"password": "Password"
+		}
+	},
+	"MostPopularPage": {
+		"title": "All the most popular",
+		"btn": "Show more",
+		"popularInfo": {
+			"text1": "Showing",
+			"text2": "of",
+			"text3": "establishments"
+		}
+	},
+	"armenianPage": {
+		"title": "Armenian goods and tastes",
+		"btn": "Show more",
+		"armenianInfo": {
+			"text1": "Showing",
+			"text2": "of",
+			"text3": "establishments"
+		}
+	}
+}

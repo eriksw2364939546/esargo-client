@@ -1,0 +1,23 @@
+# public/robots.txt
+User-agent: *
+Allow: /
+
+# Заборонити індексацію API та системних файлів
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Головна sitemap
+Sitemap: https://ххх
+
+# Crawl-delay для поліпшення продуктивності
+Crawl-delay: 1
+
+# Специфічні правила для популярних ботів
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2

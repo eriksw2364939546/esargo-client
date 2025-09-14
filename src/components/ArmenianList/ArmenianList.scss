@@ -1,0 +1,34 @@
+.armenian__list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 60px 0;
+}
+
+.loader-wrapper__armenian {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.armenian__show-btn {
+    width: 170px !important;
+    margin:  0 auto;
+}
+
+.armenian__info {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+    font-size: 14px;
+
+}
+
+@media all and (max-width: 1405px) {
+    .most-popular__list {
+        justify-content: center;
+    }
+}

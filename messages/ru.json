@@ -1,0 +1,100 @@
+{
+	"homePage": {
+		"alpha": {
+			"title": "Быстрая доставка всего, что<br />вам нужно",
+			"p": "Откройте для себя лучшие рестораны и магазины рядом с вами",
+			"toConditions": "Условия"
+		},
+		"basket": {
+			"headText": "Корзина",
+			"contentText1": "Ваша корзина пуста.",
+			"contentText2": "Добавьте товары, чтобы начать."
+		},
+		"categories": {
+			"title": "Категории",
+			"p": "Изучите наши различные категории",
+			"cards": {
+				"food": "Еда",
+				"alcohol": "Алкоголь",
+				"cosmetics": "Косметика",
+				"flowers": "Цветы",
+				"pets": "Домашние животные"
+			}
+		},
+		"mostPopular": {
+			"title": "Самое популярное",
+			"descr": "Лучшее что рядом с вами",
+			"btn": "Смотреть всё"
+		},
+		"armenian": {
+			"title": "Армянские товары и вкусы",
+			"descr": "Для тех, кто ценит армянское",
+			"btn": "Смотреть всё"
+		}
+	},
+	"header": {
+		"toRegister": "Регистрация",
+		"toLogin": "Войти",
+		"searchForm": "Поиск ресторанов и магазинов"
+	},
+	"registerPage": {
+		"title": "Страница регистрации",
+		"welcome": "Добро пожаловать",
+		"tabLogin": "Войти",
+		"tabRegister": "Регистрация",
+		"firstName": "Имя",
+		"lastName": "Фамилия",
+		"email": "E-mail",
+		"phone": "Телефон",
+		"password": "Пароль",
+		"confirmPassword": "Подтвердите пароль",
+		"registerButton": "Регистрация",
+		"termsNotice": {
+			"text1": "Регистрируясь, вы соглашаетесь с нашими",
+			"text2": "условиями использования",
+			"text3": "и политикой",
+			"text4": "конфиденциальности."
+		},
+		"placeholders": {
+			"firstName": "Имя",
+			"lastName": "Фамилия",
+			"email": "E-mail",
+			"phone": "+33 1 23 45 67 89",
+			"password": "Пароль",
+			"confirmPassword": "Подтвердите пароль"
+		}
+	},
+	"loginPage": {
+		"title": "Страница входа",
+		"welcome": "Добро пожаловать",
+		"tabLogin": "Войти",
+		"tabRegister": "Регистрация",
+		"email": "Email",
+		"password": "Пароль",
+		"forgotPassword": "Забыли пароль?",
+		"loginButton": "Войти",
+		"orContinue": "Или продолжить с",
+		"placeholders": {
+			"email": "E-mail",
+			"password": "Пароль"
+		}
+	},
+	"MostPopularPage": {
+		"title": "Всё самое популярное",
+		"btn": "Показать ещё",
+		"popularInfo": {
+			"text1": "Показано",
+			"text2": "из",
+			"text3": "заведений"
+		}
+	},
+	"armenianPage": {
+		"title": "Армянские товары и вкусы",
+		"btn": "Показать ещё",
+		"armenianInfo": {
+			"text1": "Показано",
+			"text2": "из",
+			"text3": "заведений"
+		}
+	}
+}

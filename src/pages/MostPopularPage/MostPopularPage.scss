@@ -1,0 +1,19 @@
+.most-popular__page{
+    padding: 120px 0 60px 0;
+    background: var(--background2);
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    h1{
+        font-size: 35px;
+        text-align: center;
+    }
+}
+
+
+@media all and (max-width: 425px){
+.most-popular__page h1{
+    font-size: 25px;
+}
+
+}

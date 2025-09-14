@@ -1,0 +1,499 @@
+.checkout-page {
+  min-height: 100vh;
+  background: var(--background2);
+  padding: 120px 0 60px 0;
+
+  .empty-checkout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    gap: 20px;
+
+    h2 {
+      color: #333;
+      margin: 0;
+    }
+
+    .back-btn {
+      background: #ff6b35;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #e55a2b;
+      }
+    }
+  }
+
+  .back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 8px 0;
+    margin-bottom: 20px;
+    font-size: 16px;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #333;
+    }
+  }
+
+  .checkout-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 30px 0;
+  }
+
+  .checkout-content {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 40px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  .checkout-section {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+      margin: 0 0 20px 0;
+
+      .location-icon,
+      .clock-icon {
+        font-size: 20px;
+      }
+    }
+  }
+
+  // Адрес доставки
+  .address-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .address-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: #ff6b35;
+    }
+
+    input[type="radio"] {
+      margin: 4px 0 0 0;
+    }
+
+    input[type="radio"]:checked + .address-content {
+      .address-label {
+        color: #ff6b35;
+      }
+    }
+
+    .address-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .address-label {
+        font-weight: 600;
+        color: #333;
+        font-size: 16px;
+      }
+
+      .address-text {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .address-tag {
+        background: #e8f5e8;
+        color: #4caf50;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        width: fit-content;
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .add-address-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: 2px dashed #ccc;
+    color: #666;
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    width: 100%;
+
+    &:hover {
+      border-color: #ff6b35;
+      color: #ff6b35;
+    }
+  }
+
+  .address-form {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+
+    .address-input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      font-size: 14px;
+
+      &:focus {
+        outline: none;
+        border-color: #ff6b35;
+      }
+    }
+
+    .save-address-btn {
+      background: #ff6b35;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #e55a2b;
+      }
+    }
+  }
+
+  // Время доставки
+  .delivery-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .delivery-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 16px;
+
+    input[type="radio"] {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .schedule-form {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+
+    .schedule-inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+
+      @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      label {
+        font-weight: 600;
+        color: #333;
+        font-size: 14px;
+      }
+
+      .schedule-input {
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+
+        &:focus {
+          outline: none;
+          border-color: #ff6b35;
+        }
+      }
+    }
+  }
+
+  // Способ оплаты
+  .payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .payment-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 16px;
+
+    input[type="radio"] {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .card-form {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+
+    .card-input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      font-size: 14px;
+
+      &:focus {
+        outline: none;
+        border-color: #ff6b35;
+      }
+
+      &.card-input-small {
+        width: calc(50% - 6px);
+        margin-bottom: 0;
+      }
+    }
+
+    .card-row {
+      display: flex;
+      gap: 12px;
+    }
+  }
+
+  // Особые инструкции
+  .instructions-textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+
+    &:focus {
+      outline: none;
+      border-color: #ff6b35;
+    }
+  }
+
+  // Правая панель - резюме заказа
+  .checkout-right {
+    .order-summary {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 20px;
+
+      .summary-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #333;
+        margin: 0 0 20px 0;
+      }
+
+      .restaurant-summary {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+
+        &:last-child {
+          border-bottom: none;
+          margin-bottom: 0;
+          padding-bottom: 0;
+        }
+
+        .restaurant-name {
+          font-size: 16px;
+          font-weight: 600;
+          color: #333;
+          margin: 0 0 12px 0;
+        }
+
+        .order-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 8px;
+          font-size: 14px;
+
+          .item-quantity {
+            color: #666;
+            min-width: 25px;
+          }
+
+          .item-name {
+            flex: 1;
+            color: #333;
+          }
+
+          .item-price {
+            font-weight: 600;
+            color: #333;
+          }
+        }
+
+        .subtotal {
+          display: flex;
+          justify-content: space-between;
+          font-size: 14px;
+          color: #666;
+          margin: 12px 0 8px 0;
+        }
+
+        .restaurant-subtotal {
+          display: flex;
+          justify-content: space-between;
+          font-size: 14px;
+          font-weight: 600;
+          color: #333;
+          padding-top: 8px;
+          border-top: 1px solid #f0f0f0;
+        }
+      }
+
+      .total-section {
+        border-top: 2px solid #ff6b35;
+        padding-top: 20px;
+        margin-top: 20px;
+
+        .total {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+
+          .total-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+          }
+
+          .total-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff6b35;
+          }
+        }
+      }
+
+      .place-order-btn {
+        width: 100%;
+        background: #ff6b35;
+        color: white;
+        border: none;
+        padding: 16px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        margin-bottom: 16px;
+
+        &:hover {
+          background: #e55a2b;
+          transform: translateY(-1px);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+
+      .terms-text {
+        font-size: 10px;
+        line-height: 1.4;
+        color: #666;
+        text-align: justify;
+        
+        i {
+          color: #333;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  // Адаптивность
+  @media (max-width: 768px) {
+
+
+    .checkout-title {
+      font-size: 24px;
+    }
+
+    .checkout-section {
+      padding: 16px;
+    }
+
+    .checkout-right {
+      .order-summary {
+        padding: 16px;
+      }
+    }
+  }
+}
