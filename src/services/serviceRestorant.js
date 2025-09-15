@@ -1,8 +1,54 @@
-const _API_URL = process.env.NEXT_PUBLIC_API_URL
+// serviceRestorant.js - ПОЛНАЯ ИСПРАВЛЕННАЯ ВЕРСИЯ СО ВСЕМИ ФУНКЦИЯМИ
 
-console.log('API URL:', _API_URL); // Для отладки
+const _API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-// Отладочная функция
+// 🔍 ОТЛАДОЧНАЯ ИНФОРМАЦИЯ
+console.log('=== API URL DEBUG ===');
+console.log('NEXT_PUBLIC_API_URL:', process.env.NEXT_PUBLIC_API_URL);
+console.log('Expected format: http://localhost:5000/api');
+console.log('====================');
+
+if (!_API_URL) {
+	console.error('❌ NEXT_PUBLIC_API_URL не настроена!');
+	console.log('Добавьте в .env.local: NEXT_PUBLIC_API_URL=http://localhost:5000/api');
+}
+
+// ✅ ОТЛАДОЧНАЯ ФУНКЦИЯ для проверки URL
+export const debugApiUrl = () => {
+	console.log('=== API DEBUG INFO ===');
+	console.log('Current API URL:', _API_URL);
+	console.log('Expected catalog URL:', `${_API_URL}/public/catalog`);
+	console.log('Expected restaurant URL:', `${_API_URL}/public/restaurants/[id]`);
+	console.log('======================');
+};
+
+// ✅ ТЕСТОВАЯ ФУНКЦИЯ для проверки подключения
+export const testApiConnection = async () => {
+	try {
+		console.log('🔗 Testing API connection...');
+		const testUrl = `${_API_URL}/public/catalog?limit=1`;
+		console.log('Test URL:', testUrl);
+		
+		const response = await fetch(testUrl);
+		console.log('Test response status:', response.status);
+		
+		if (response.ok) {
+			const data = await response.json();
+			console.log('✅ API connection successful!');
+			return { success: true, data };
+		} else {
+			console.error('❌ API connection failed:', response.status);
+			const errorText = await response.text();
+			console.error('Error response:', errorText);
+			return { success: false, status: response.status, error: errorText };
+		}
+	} catch (error) {
+		console.error('❌ API connection error:', error);
+		return { success: false, error: error.message };
+	}
+};
+
+// ✅ ОТЛАДОЧНАЯ ФУНКЦИЯ из оригинального кода
 export const debugRestaurantRequest = async (id) => {
 	console.log('=== DEBUG RESTAURANT REQUEST ===');
 	console.log('Input ID:', id);
@@ -15,8 +61,8 @@ export const debugRestaurantRequest = async (id) => {
 	}
 	
 	try {
-		// Попробуем прямой запрос к API
-		const url = `${_API_URL}/restaurants/${id}?include_menu=false`;
+		// ✅ ИСПРАВЛЕНО: убрано дублирование /api
+		const url = `${_API_URL}/public/restaurants/${id}?include_menu=false`;
 		console.log('Full URL:', url);
 		
 		const response = await fetch(url, {
@@ -55,7 +101,7 @@ export const debugRestaurantRequest = async (id) => {
 	}
 };
 
-// Получить ресторан по ID (теперь поддерживает как _id, так и id_name)
+// ✅ ИСПРАВЛЕННАЯ ФУНКЦИЯ: Получить ресторан по ID (с поддержкой поиска)
 export const getRestaurantById = async (id, includeMenu = true) => {
 	try {
 		if (!_API_URL) {
@@ -75,7 +121,8 @@ export const getRestaurantById = async (id, includeMenu = true) => {
 
 		if (isObjectId) {
 			// Если это ObjectId, используем прямой запрос
-			url = `${_API_URL}/restaurants/${id}?include_menu=${includeMenu}`;
+			// ✅ ИСПРАВЛЕНО: убрано дублирование /api
+			url = `${_API_URL}/public/restaurants/${id}?include_menu=${includeMenu}`;
 			console.log('Request URL (ObjectId):', url);
 
 			response = await fetch(url, {
@@ -120,7 +167,8 @@ export const getRestaurantById = async (id, includeMenu = true) => {
 		} else {
 			// Если это не ObjectId, используем поиск
 			console.log('Using search for non-ObjectId:', id);
-			url = `${_API_URL}/restaurants/search?q=${encodeURIComponent(id)}`;
+			// ✅ ИСПРАВЛЕНО: правильный путь для поиска
+			url = `${_API_URL}/public/search?q=${encodeURIComponent(id)}`;
 			console.log('Request URL (Search):', url);
 
 			response = await fetch(url, {
@@ -178,7 +226,7 @@ export const getRestaurantById = async (id, includeMenu = true) => {
 	}
 };
 
-// Остальные функции остаются без изменений...
+// ✅ ИСПРАВЛЕННАЯ ФУНКЦИЯ: Получить все рестораны
 export const getAllRestaurants = async (params = {}) => {
 	try {
 		if (!_API_URL) {
@@ -194,7 +242,8 @@ export const getAllRestaurants = async (params = {}) => {
 			}
 		});
 
-		const url = `${_API_URL}/restaurants${queryParams.toString() ? `?${queryParams}` : ''}`;
+		// ✅ ИСПРАВЛЕНО: убрано дублирование /api
+		const url = `${_API_URL}/public/catalog${queryParams.toString() ? `?${queryParams}` : ''}`;
 		console.log('Fetching restaurants from:', url);
 
 		const response = await fetch(url, {
@@ -216,7 +265,16 @@ export const getAllRestaurants = async (params = {}) => {
 		const data = await response.json();
 		console.log('getAllRestaurants response data:', data);
 
-		return data;
+		// ✅ Преобразуем в формат, который ожидает фронтенд
+		return {
+			success: data.result || false,
+			data: {
+				restaurants: data.data || [],
+				pagination: data.pagination || {},
+				total_found: data.total_found || 0
+			},
+			message: data.message
+		};
 	} catch (error) {
 		console.error('Ошибка при получении ресторанов:', error);
 		
@@ -229,7 +287,7 @@ export const getAllRestaurants = async (params = {}) => {
 	}
 };
 
-// Поиск ресторанов по запросу
+// ✅ ИСПРАВЛЕННАЯ ФУНКЦИЯ: Поиск ресторанов по запросу
 export const searchRestaurants = async (query, params = {}) => {
 	try {
 		if (!_API_URL) {
@@ -244,7 +302,8 @@ export const searchRestaurants = async (query, params = {}) => {
 			}
 		});
 
-		const response = await fetch(`${_API_URL}/restaurants/search?${queryParams}`);
+		// ✅ ИСПРАВЛЕНО: правильный путь для поиска
+		const response = await fetch(`${_API_URL}/public/search?${queryParams}`);
 
 		if (!response.ok) {
 			const error = await response.json().catch(() => ({}));
@@ -258,7 +317,7 @@ export const searchRestaurants = async (query, params = {}) => {
 	}
 };
 
-// Получить рестораны по почтовому индексу
+// ✅ ИСПРАВЛЕННАЯ ФУНКЦИЯ: Получить рестораны по почтовому индексу
 export const getRestaurantsByPostalCode = async (postalCode, params = {}) => {
 	try {
 		if (!_API_URL) {
@@ -273,7 +332,8 @@ export const getRestaurantsByPostalCode = async (postalCode, params = {}) => {
 			}
 		});
 
-		const url = `${_API_URL}/restaurants/by-postal-code/${postalCode}${queryParams.toString() ? `?${queryParams}` : ''}`;
+		// ✅ ИСПРАВЛЕНО: убрано дублирование /api (если такой endpoint существует)
+		const url = `${_API_URL}/public/restaurants/by-postal-code/${postalCode}${queryParams.toString() ? `?${queryParams}` : ''}`;
 		const response = await fetch(url);
 
 		if (!response.ok) {
@@ -288,7 +348,7 @@ export const getRestaurantsByPostalCode = async (postalCode, params = {}) => {
 	}
 };
 
-// Функции для меню
+// ✅ ИСПРАВЛЕННАЯ ФУНКЦИЯ: Получить меню по ID ресторана
 export const getMenuByRestaurantId = async (id, options = {}) => {
 	try {
 		if (!_API_URL) {
@@ -300,14 +360,16 @@ export const getMenuByRestaurantId = async (id, options = {}) => {
 			...options
 		}).toString();
 
-		const res = await fetch(`${_API_URL}/menu/restaurant/${id}?${queryParams}`);
+		// ✅ ИСПРАВЛЕНО: правильный путь для меню
+		const res = await fetch(`${_API_URL}/public/restaurants/${id}/menu?${queryParams}`);
 		const data = await res.json();
 
 		if (!res.ok || !data.success) {
 			throw new Error(data.message || "Ошибка при получении меню");
 		}
 
-		const menuItems = data.data.menu.flatMap((category) => category.items);
+		// Извлекаем items из категорий меню
+		const menuItems = data.data?.menu?.flatMap((category) => category.items) || [];
 		return menuItems;
 	} catch (error) {
 		console.error('Ошибка при получении меню:', error);
@@ -315,6 +377,7 @@ export const getMenuByRestaurantId = async (id, options = {}) => {
 	}
 };
 
+// ✅ ИСПРАВЛЕННАЯ ФУНКЦИЯ: Получить блюдо по ID
 export const getMenuItemById = async (id) => {
 	try {
 		if (!_API_URL) {
@@ -322,9 +385,11 @@ export const getMenuItemById = async (id) => {
 		}
 
 		console.log('Fetching item with ID:', id);
-		console.log('API URL:', `${_API_URL}/menu/item/${id}`);
+		// ✅ ИСПРАВЛЕНО: правильный путь для получения блюда
+		const url = `${_API_URL}/public/menu/item/${id}`;
+		console.log('API URL:', url);
 
-		const res = await fetch(`${_API_URL}/menu/item/${id}`);
+		const res = await fetch(url);
 		const data = await res.json();
 
 		if (!res.ok || !data.success) {

@@ -1,7 +1,6 @@
 // next.config.mjs
 import createNextIntlPlugin from 'next-intl/plugin';
 
-// Явно вказуємо шлях до файлу конфігурації  
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.js');
 
 /** @type {import('next').NextConfig} */
@@ -9,6 +8,17 @@ const nextConfig = {
 	images: {
 		formats: ['image/avif', 'image/webp'],
 		remotePatterns: [
+			{
+				protocol: 'http',
+				hostname: 'localhost',
+				port: '5000',
+				pathname: '/uploads/**',
+			},
+			{
+				protocol: 'http',
+				hostname: 'localhost',
+				pathname: '/api/uploads/**',
+			},
 			{
 				protocol: 'https',
 				hostname: 'example.com',
